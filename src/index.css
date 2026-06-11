@@ -1,0 +1,65 @@
+/* ========== CSS Variables — 港都社大品牌色系 ========== */
+:root {
+  /* Brand colors */
+  --color-primary:      #57ADA6;   /* 青綠 — 主色 */
+  --color-primary-dark: #286262;   /* 深青綠 — hover / header */
+  --color-accent:       #EE780C;   /* 橘色 — CTA 按鈕 */
+  --color-accent-hover: #c96208;
+  --color-navy:         #2B6192;   /* 深藍 — 總金額、強調 */
+  --color-yellow:       #FFDA2A;   /* 黃色 — badge */
+  --color-light-blue:   #94BFE6;   /* 淺藍 — 裝飾 */
+  --color-light-orange: #F6AE5F;   /* 淺橘 — 柔和強調 */
+
+  /* UI semantic */
+  --color-text:       #1e3535;
+  --color-text-light: #3f5f5f;
+  --color-bg:         #f4fafa;
+  --color-surface:    #ffffff;
+  --color-border:     #cde3e1;
+  --color-highlight:  #e6f4f3;
+  --color-warning:    #EE780C;
+  --color-error:      #d94f4f;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 4px rgba(40, 98, 98, 0.08);
+  --shadow-md: 0 4px 18px rgba(40, 98, 98, 0.11);
+  --shadow-lg: 0 8px 36px rgba(40, 98, 98, 0.16);
+
+  --font-main: 'Microsoft YaHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
+}
+
+/* ========== Reset ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+button {
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, select {
+  font-family: var(--font-main);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,57 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.select {
+  width: 100%;
+  padding: 11px 12px;
+  min-height: 44px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.selectDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--color-bg);
+}
+
+.selectError {
+  border-color: var(--color-error);
+  background: #fff8f8;
+}
+
+.selectError:focus {
+  border-color: var(--color-error);
+}
+
+.fieldError {
+  font-size: 12px;
+  color: var(--color-error);
+  margin-top: 2px;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

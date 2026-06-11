@@ -1,0 +1,138 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+/* ── 輸入框 ── */
+.inputBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  min-height: 44px;
+  transition: border-color 0.2s, border-radius 0.15s;
+}
+
+.inputBox:focus-within,
+.inputBoxOpen {
+  border-color: var(--color-primary);
+}
+
+.inputBoxOpen {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-bottom-color: transparent;
+}
+
+.icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: var(--color-text);
+  background: transparent;
+}
+
+.clearBtn {
+  background: transparent;
+  color: var(--color-text-light);
+  font-size: 13px;
+  flex-shrink: 0;
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+
+.clearBtn:hover {
+  color: var(--color-error);
+}
+
+/* ── 下拉建議清單 ── */
+.dropdown {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+  border-top: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  max-height: 240px;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 50;
+  box-shadow: var(--shadow-md);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.12s;
+}
+
+.option:hover {
+  background: var(--color-highlight);
+}
+
+.optionSelected {
+  background: var(--color-highlight);
+  font-weight: 600;
+}
+
+.optionCode {
+  color: var(--color-text-light);
+  font-size: 12px;
+  flex-shrink: 0;
+  min-width: 68px;
+}
+
+.optionName {
+  color: var(--color-text);
+  flex: 1;
+}
+
+.noResult {
+  padding: 12px 14px;
+  color: var(--color-text-light);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ── 已選課程資訊 ── */
+.courseInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-text-light);
+  padding: 4px 2px;
+}
+
+.promoBadge {
+  background: var(--color-yellow);
+  color: #5a3c00;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
