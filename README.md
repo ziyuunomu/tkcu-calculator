@@ -1,16 +1,82 @@
-# React + Vite
+# 港都社大 加退選費用計算機
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 一名社大第一線工作者，為了解決每學期手動計算課程費用的痛點而開發的工具。
+> 從 Python 桌面應用重構為 React Web App，讓任何人都能免安裝、跨裝置使用。
 
-Currently, two official plugins are available:
+**[Live Demo](https://tkcu-calculator.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![App Screenshot](./screenshot.png)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 專案背景
 
-## Expanding the ESLint configuration
+在港都社區大學擔任行政工作時，發現每到選課期間，
+計算學員的加選費用、退課退費金額是一件繁瑣且容易出錯的工作。
+費用涉及多種變數：課程週數、插班週次、身分別折扣、推廣課程優惠、
+報名費與保險費規則——每一筆都需要人工對照計算。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+為了解決這個問題，最初透過 AI 協助開發了 Python tkinter 版本，
+並在日常工作中實際使用、收集同事反饋持續優化。
+
+在累積了真實使用經驗後，決定以這個計算機作為學習前端開發的實戰專案，
+將其重構為 React Web App——目標是讓任何人不需要安裝任何程式，
+打開瀏覽器就能使用。
+
+---
+
+## 功能亮點
+
+- **即時課程搜尋**：輸入課程名稱或編號即時篩選，不需要翻找下拉清單
+- **購物車模式**：同時計算多堂課程，報名費與保險費整學期只收一次
+- **身分折扣擇優**：推廣課程與身分別優惠自動擇優，符合實際計費規則
+- **防呆引導**：步驟編號引導操作順序、選新生/舊生自動帶入報名費、欄位層級錯誤提示
+- **複製結果**：一鍵複製費用明細，方便貼入通訊軟體告知學員
+- **RWD 支援**：行動裝置上也能順暢操作，觸控目標符合 44px 標準
+
+---
+
+## 技術選型
+
+| 技術 | 選擇原因 |
+|------|---------|
+| React + Vite | 元件化讓每個表單欄位、Modal、搜尋框各自獨立維護 |
+| CSS Modules | 避免樣式污染，品牌色系透過 CSS 變數統一管理 |
+| 純前端、無後端 | 課程資料為靜態 JSON，所有計算在瀏覽器完成，無資安疑慮 |
+| Vercel 部署 | 連結 GitHub 後自動 CI/CD，推送即上線 |
+
+---
+
+## 主要挑戰
+
+**1. 計算邏輯的完整翻譯**
+原 Python 版本的費用邏輯散落在多個函式中，重構時整理為
+`calcDiscount()`、`calcRefundRatio()`、`calculateAddMultiple()` 等獨立模組，
+讓邏輯清晰且可測試。
+
+**2. 購物車模式的設計**
+同事反映需要同時計算多堂課程，但每堂課的插班週次不同、費用各異，
+而報名費與保險費是整學期共用一次。
+設計了「每堂課各自計算學分費，共用費用最後加一次」的資料結構來解決這個問題。
+
+**3. UX 引導**
+購物車模式讓操作流程比單課程模式複雜，
+因此加入步驟數字標示（① ② ③）、空狀態提示、欄位層級錯誤訊息、
+身分選擇自動帶入報名費等設計，降低使用者的認知負擔。
+
+---
+
+## 本地執行
+
+```bash
+cd tkcu-calculator
+npm install
+npm run dev
+```
+
+---
+
+## 作者
+
+mumu — 港都社區大學行政人員，前端學習者
+[GitHub](https://github.com/ziyuunomu)
