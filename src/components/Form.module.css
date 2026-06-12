@@ -238,6 +238,8 @@
   border-radius: var(--radius-sm);
   padding: 8px 12px;
   font-size: 13px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .cartItemNum {
@@ -265,6 +267,10 @@
   flex: 1;
   color: var(--color-text);
   font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .cartItemWeek {

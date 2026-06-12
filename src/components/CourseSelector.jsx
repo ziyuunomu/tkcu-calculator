@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './CourseSelector.module.css'
 
-export default function CourseSelector({ courses, value, onChange }) {
+export default function CourseSelector({ courses, value, onChange, hideInfo = false }) {
   const [query, setQuery]       = useState('')
   const [open, setOpen]         = useState(false)
   const wrapperRef              = useRef(null)
@@ -86,7 +86,7 @@ export default function CourseSelector({ courses, value, onChange }) {
         </ul>
       )}
 
-      {selectedCourse && !open && (
+      {selectedCourse && !open && !hideInfo && (
         <div className={styles.courseInfo}>
           <span>總週數：{selectedCourse.週數} 週</span>
           {selectedCourse.推廣課程 && (

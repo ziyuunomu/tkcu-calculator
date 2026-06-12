@@ -113,6 +113,7 @@ export default function AddForm({ courses, identities }) {
                   courses={courses}
                   value={currentCourse}
                   onChange={code => { setCurrentCourse(code); setCurrentWeek('') }}
+                  hideInfo
                 />
                 <div className={styles.cartInputRow}>
                   <FormField
